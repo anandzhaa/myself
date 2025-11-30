@@ -84,3 +84,4 @@ Your website is now live on the internet! 🎉
 - **Backend Issues:** Check logs in Render dashboard
 - **MongoDB Issues:** Check MongoDB Atlas connection string
 
+

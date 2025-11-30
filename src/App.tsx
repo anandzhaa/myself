@@ -313,7 +313,7 @@ function App() {
           <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
             <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 border-l-4 border-blue-600 hover:shadow-xl transition-all duration-300">
               <div className="flex items-start justify-between mb-4">
-                <div>
+              <div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Content Writer</h3>
                   <p className="text-blue-600 font-semibold">Freelance</p>
                 </div>
@@ -426,8 +426,8 @@ function App() {
                   </div>
                 ))}
               </div>
-            </div>
-          </div>
+                    </div>
+                    </div>
           <div className="mt-8 max-w-5xl mx-auto">
             <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
@@ -493,7 +493,7 @@ function App() {
               <div className="flex items-start gap-3 sm:gap-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-yellow-100 to-orange-100 flex items-center justify-center flex-shrink-0">
                   <Award className="text-yellow-600 sm:w-8 sm:h-8" size={24} />
-                </div>
+                  </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">Journal Published on Nepal Journal Online</h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -615,7 +615,7 @@ function App() {
                   ) : (
                     <>
                       <Send size={20} />
-                      Send Message
+                  Send Message
                     </>
                   )}
                 </button>

@@ -231,3 +231,4 @@ vercel
 - `HOSTING_GUIDE.md` - Complete hosting options
 - `DEPLOY_QUICK_START.md` - 5-minute quick start
 
+
