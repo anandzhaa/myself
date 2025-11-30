@@ -9,28 +9,31 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    // List of allowed origins
-    const allowedOrigins = [
-      'http://localhost:5173',
-      'http://localhost:3000',
-      process.env.FRONTEND_URL,
-      process.env.CUSTOM_DOMAIN,
-      // Add your custom domain here or use environment variable
-    ].filter(Boolean); // Remove undefined values
-    
-    if (allowedOrigins.includes(origin) || origin.includes('vercel.app') || origin.includes('netlify.app')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
+const allowAll = process.env.ALLOW_ALL_ORIGINS !== 'false';
+
+if (allowAll) {
+  app.use(cors({ origin: true, credentials: true }));
+} else {
+  app.use(cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+
+      const allowedOrigins = [
+        'http://localhost:5173',
+        'http://localhost:3000',
+        process.env.FRONTEND_URL,
+        process.env.CUSTOM_DOMAIN,
+      ].filter(Boolean);
+
+      if (allowedOrigins.includes(origin) || (origin && (origin.includes('vercel.app') || origin.includes('netlify.app')))) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  }));
+}
 app.use(express.json());
 
 // MongoDB connection
